@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎬 HTML Media Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+            background: #f9f9f9;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2 {
+            color: #333;
+        }
+
+        code {
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 1em;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🎬 HTML Media Guide</h1>
+    <p>Bienvenue dans cette documentation complète sur les <strong>éléments multimédia en HTML</strong> : Vidéo, Audio,
+        Plug-ins et YouTube ! Que vous soyez débutant ou en train de renforcer vos bases, ce guide vous aidera à
+        comprendre comment intégrer et manipuler du contenu multimédia dans vos pages web.</p>
+
+    <section>
+        <h2>📽️ HTML Video</h2>
+        <p><strong>Définition :</strong> L’élément <code>&lt;video&gt;</code> permet d’intégrer une <strong>vidéo
+                directement dans une page HTML</strong>, sans plug-in externe.</p>
+
+        <p><strong>Exemple :</strong></p>
+        <video width="640" height="360" controls>
+            <source src="movie.mp4" type="video/mp4" />
+            <source src="movie.ogg" type="video/ogg" />
+            Votre navigateur ne supporte pas la balise vidéo.
+        </video>
+
+        <p><strong>Attributs courants :</strong></p>
+        <ul>
+            <li><code>controls</code> : Affiche les contrôles</li>
+            <li><code>autoplay</code>, <code>muted</code>, <code>loop</code>, <code>poster</code></li>
+        </ul>
+
+        <p><strong>Formats supportés :</strong> .mp4 ✅, .ogg, .webm</p>
+        <p><strong>Usages :</strong> Tutoriels, publicités, fonds vidéo…</p>
+    </section>
+
+    <section>
+        <h2>🔊 HTML Audio</h2>
+        <p><strong>Définition :</strong> L’élément <code>&lt;audio&gt;</code> permet de lire des <strong>fichiers
+                audio</strong> dans la page web.</p>
+
+        <p><strong>Exemple :</strong></p>
+        <audio controls>
+            <source src="sound.mp3" type="audio/mpeg" />
+            <source src="sound.ogg" type="audio/ogg" />
+            Votre navigateur ne supporte pas la balise audio.
+        </audio>
+
+        <p><strong>Attributs communs :</strong> <code>controls</code>, <code>autoplay</code>, <code>loop</code>,
+            <code>muted</code></p>
+        <p><strong>Formats supportés :</strong> .mp3 ✅, .ogg, .wav</p>
+        <p><strong>Usages :</strong> Podcasts, musique, effets sonores…</p>
+    </section>
+
+    <section>
+        <h2>🔌 HTML Plug-ins (💀 Obsolète)</h2>
+        <p><strong>Définition :</strong> Les balises comme <code>&lt;object&gt;</code>, <code>&lt;embed&gt;</code>,
+            <code>&lt;applet&gt;</code> étaient utilisées pour intégrer des contenus comme Flash ou Java Applets.</p>
+
+        <p><strong>Exemple :</strong></p>
+        <pre><code>&lt;object data="example.swf" width="400" height="300"&gt;
+  Contenu alternatif
+&lt;/object&gt;</code></pre>
+
+        <p><strong>⚠️ Attention :</strong> Ces éléments sont obsolètes. Utilisez plutôt les balises modernes comme
+            <code>&lt;video&gt;</code> et <code>&lt;audio&gt;</code>.</p>
+    </section>
+
+    <section>
+        <h2>📺 HTML YouTube (Intégration via iframe)</h2>
+        <p><strong>Définition :</strong> Pour intégrer une vidéo YouTube, on utilise une iframe fournie par YouTube.</p>
+
+        <p><strong>Exemple :</strong></p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+
+        <p><strong>Avantages :</strong> Aucun hébergement requis, partage facile, compatibilité large.</p>
+    </section>
+
+    <section>
+        <h2>💡 Bonnes pratiques</h2>
+        <ul>
+            <li>Proposez plusieurs formats vidéo/audio pour plus de compatibilité</li>
+            <li>Ajoutez toujours un texte alternatif pour les navigateurs incompatibles</li>
+            <li>Évitez <code>autoplay</code> non sollicité, surtout sur mobile</li>
+            <li>Compressez vos fichiers pour améliorer la vitesse de chargement</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>📚 Ressources utiles</h2>
+        <ul>
+            <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/video" target="_blank">MDN - HTML
+                    Video</a></li>
+            <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/audio" target="_blank">MDN - HTML
+                    Audio</a></li>
+            <li><a href="https://support.google.com/youtube/answer/171780?hl=fr" target="_blank">YouTube Embed Guide</a>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>✅ Conclusion</h2>
+        <p>L’intégration multimédia avec HTML est simple et moderne. Abandonnez les plug-ins obsolètes, et utilisez les
+            balises HTML5 pour des pages plus rapides, accessibles et compatibles.</p>
+    </section>
+
+</body>
+
+</html>

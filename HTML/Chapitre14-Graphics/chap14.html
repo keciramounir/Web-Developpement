@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas et SVG - Exemple Complet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #f5f5f5;
+            padding: 20px;
+        }
+
+        canvas,
+        svg {
+            margin-bottom: 30px;
+            background-color: #fff;
+            border: 2px solid #444;
+        }
+
+        h2 {
+            color: #ffd700;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🎨 Démonstration : HTML Canvas & SVG</h1>
+
+    <!-- 🖼️ Canvas Section -->
+    <h2>🖼️ Canvas</h2>
+    <canvas id="myCanvas" width="400" height="200"></canvas>
+
+    <script>
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // 🔴 Rectangle rouge
+        ctx.fillStyle = "red";
+        ctx.fillRect(10, 10, 80, 60);
+
+        // 🌈 Rectangle avec dégradé linéaire
+        const grad1 = ctx.createLinearGradient(100, 10, 180, 10);
+        grad1.addColorStop(0, "blue");
+        grad1.addColorStop(1, "cyan");
+        ctx.fillStyle = grad1;
+        ctx.fillRect(100, 10, 80, 60);
+
+        // 🌀 Rectangle avec dégradé radial
+        const grad2 = ctx.createRadialGradient(240, 40, 5, 260, 40, 40);
+        grad2.addColorStop(0, "orange");
+        grad2.addColorStop(1, "white");
+        ctx.fillStyle = grad2;
+        ctx.fillRect(190, 10, 100, 60);
+
+        // ✏️ Texte plein
+        ctx.font = "20px Verdana";
+        ctx.fillStyle = "green";
+        ctx.fillText("Canvas Text", 10, 100);
+
+        // 🔲 Texte en contour
+        ctx.strokeStyle = "black";
+        ctx.strokeText("Contour", 10, 130);
+
+        // 🔺 Cercle
+        ctx.beginPath();
+        ctx.arc(320, 120, 30, 0, 2 * Math.PI);
+        ctx.stroke();
+    </script>
+
+    <!-- 🧩 SVG Section -->
+    <h2>🧩 SVG</h2>
+    <svg width="500" height="250">
+
+        <!-- 🔵 Cercle -->
+        <circle cx="50" cy="50" r="40" stroke="blue" stroke-width="4" fill="lightblue" />
+
+        <!-- 🟥 Rectangle avec coins arrondis -->
+        <rect x="120" y="20" rx="15" ry="15" width="100" height="60"
+            style="fill:red;stroke:black;stroke-width:3;opacity:0.7" />
+
+        <!-- ⭐ Étoile -->
+        <polygon points="300,10 270,90 340,40 260,40 330,90"
+            style="fill:lime;stroke:purple;stroke-width:4;fill-rule:evenodd;" />
+
+        <!-- 🎨 Dégradé + texte -->
+        <defs>
+            <linearGradient id="gradText">
+                <stop offset="0%" stop-color="yellow" />
+                <stop offset="100%" stop-color="red" />
+            </linearGradient>
+        </defs>
+
+        <ellipse cx="420" cy="60" rx="50" ry="30" fill="url(#gradText)" />
+        <text x="385" y="65" fill="white" font-size="16" font-family="Arial">SVG Texte</text>
+
+    </svg>
+
+</body>
+
+</html>
