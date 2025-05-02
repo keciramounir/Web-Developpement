@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Sémantique vs Non-Sémantique</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>HTML Sémantique vs Non-Sémantique</h1>
+        <nav>
+            <ul>
+                <li><a href="#semantic">HTML Sémantique</a></li>
+                <li><a href="#non-semantic">HTML Non-Sémantique</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Section HTML Sémantique -->
+        <section id="semantic">
+            <h2>HTML Sémantique</h2>
+            <p>Les éléments sémantiques en HTML ont une signification claire et explicite. Ils aident à structurer le
+                contenu d'un document de manière logique, améliorant ainsi l'accessibilité, le référencement SEO et la
+                compréhension du code par les développeurs.</p>
+            <p><strong>Exemples d'éléments sémantiques :</strong></p>
+            <ul>
+                <li><code>&lt;header&gt;</code> : Définit une en-tête pour un document ou une section.</li>
+                <li><code>&lt;footer&gt;</code> : Contient des informations de pied de page.</li>
+                <li><code>&lt;article&gt;</code> : Représente un contenu autonome comme un article de blog.</li>
+                <li><code>&lt;section&gt;</code> : Utilisé pour diviser un contenu en sections thématiques.</li>
+                <li><code>&lt;nav&gt;</code> : Contient un ensemble de liens de navigation.</li>
+                <li><code>&lt;aside&gt;</code> : Représente un contenu secondaire ou complémentaire.</li>
+                <li><code>&lt;main&gt;</code> : Représente le contenu principal du document.</li>
+            </ul>
+
+            <p><strong>Exemple d'HTML Sémantique :</strong></p>
+            <pre><code>&lt;header&gt;
+  &lt;h1&gt;Bienvenue sur mon site web&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#home&quot;&gt;Accueil&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#about&quot;&gt;À propos&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+  &lt;section&gt;
+    &lt;h2&gt;Introduction&lt;/h2&gt;
+    &lt;p&gt;Ceci est un paragraphe d'introduction.&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+  &lt;p&gt;© 2025 Mon Site Web&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+        </section>
+
+        <!-- Section HTML Non-Sémantique -->
+        <section id="non-semantic">
+            <h2>HTML Non-Sémantique</h2>
+            <p>Les éléments non-sémantiques n'ont pas de signification explicite pour le contenu qu'ils contiennent. Ils
+                sont principalement utilisés pour structurer ou styliser un document sans ajouter de sens contextuel
+                particulier.</p>
+            <p><strong>Exemples d'éléments non-sémantiques :</strong></p>
+            <ul>
+                <li><code>&lt;div&gt;</code> : Conteneur générique utilisé pour la mise en page.</li>
+                <li><code>&lt;span&gt;</code> : Utilisé pour styliser une portion de texte sans signification
+                    sémantique.</li>
+            </ul>
+
+            <p><strong>Exemple d'HTML Non-Sémantique :</strong></p>
+            <pre><code>&lt;div class=&quot;header&quot;&gt;
+  &lt;h1&gt;Bienvenue sur mon site web&lt;/h1&gt;
+  &lt;div class=&quot;nav&quot;&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#home&quot;&gt;Accueil&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#about&quot;&gt;À propos&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;main&quot;&gt;
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;h2&gt;Introduction&lt;/h2&gt;
+    &lt;p&gt;Ceci est un paragraphe d'introduction.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;footer&quot;&gt;
+  &lt;p&gt;© 2025 Mon Site Web&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 HTML Sémantique vs Non-Sémantique. Tous droits réservés.</p>
+    </footer>
+
+</body>
+
+</html>

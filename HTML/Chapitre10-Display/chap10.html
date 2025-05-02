@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Démo display HTML/CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        h2 {
+            margin-top: 50px;
+            color: #333;
+        }
+
+        .block {
+            background-color: lightblue;
+            padding: 10px;
+            margin: 5px 0;
+            display: block;
+        }
+
+        .inline {
+            background-color: lightgreen;
+            padding: 5px;
+            display: inline;
+        }
+
+        .inline-block {
+            background-color: orange;
+            padding: 10px;
+            margin: 5px;
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .flex-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .flex-container div {
+            flex: 1;
+            background-color: plum;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .grid-container div {
+            background-color: salmon;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .table {
+            display: table;
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
+        }
+
+        .table-row {
+            display: table-row;
+        }
+
+        .table-cell {
+            display: table-cell;
+            border: 1px solid #333;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .list-item {
+            display: list-item;
+            list-style: square inside;
+            margin: 5px 0;
+        }
+
+        .contents-wrapper {
+            display: contents;
+        }
+
+        .contents-wrapper div {
+            background: lightgray;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>💡 Démonstration des différents types de display CSS</h1>
+
+    <h2>🔷 Block</h2>
+    <div class="block">Élément block 1</div>
+    <div class="block">Élément block 2</div>
+
+    <h2>🔹 Inline</h2>
+    <span class="inline">Span inline 1</span>
+    <span class="inline">Span inline 2</span>
+
+    <h2>🟧 Inline-Block</h2>
+    <div class="inline-block">Box 1</div>
+    <div class="inline-block">Box 2</div>
+
+    <h2>🚫 Display: none</h2>
+    <div class="hidden">Tu ne me verras pas 👻</div>
+    <div>Je suis visible</div>
+
+    <h2>🧱 Flexbox</h2>
+    <div class="flex-container">
+        <div>Colonne 1</div>
+        <div>Colonne 2</div>
+        <div>Colonne 3</div>
+    </div>
+
+    <h2>🧮 Grid</h2>
+    <div class="grid-container">
+        <div>Grille 1</div>
+        <div>Grille 2</div>
+        <div>Grille 3</div>
+    </div>
+
+    <h2>📋 Table simulée</h2>
+    <div class="table">
+        <div class="table-row">
+            <div class="table-cell">Ligne 1 - Cellule A</div>
+            <div class="table-cell">Ligne 1 - Cellule B</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">Ligne 2 - Cellule A</div>
+            <div class="table-cell">Ligne 2 - Cellule B</div>
+        </div>
+    </div>
+
+    <h2>📝 List-item personnalisé</h2>
+    <div class="list-item">Élément de liste 1</div>
+    <div class="list-item">Élément de liste 2</div>
+
+    <h2>📦 Contents (sans wrapper)</h2>
+    <div class="contents-wrapper">
+        <div>Contenu 1</div>
+        <div>Contenu 2</div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Exemple complet de structure HTML avec différents types de conteneurs." />
+    <meta name="author" content="Mounir Kecira" />
+    <meta name="keywords" content="HTML, conteneurs, section, article, navigation" />
+    <title>Exemple de Conteneurs HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 20px;
+            background-color: white;
+        }
+
+        section,
+        article {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- En-tête de la page -->
+    <header>
+        <h1>Bienvenue sur Mon Site Web</h1>
+        <nav>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenu principal -->
+    <main>
+        <!-- Section d'accueil -->
+        <section id="accueil">
+            <h2>Accueil</h2>
+            <p>Bienvenue sur notre site web ! Nous vous présentons nos services et nos actualités ici.</p>
+        </section>
+
+        <!-- Section des services -->
+        <section id="services">
+            <h2>Nos Services</h2>
+            <p>Nous offrons des services de développement web personnalisés pour répondre à vos besoins spécifiques.</p>
+        </section>
+
+        <!-- Article de blog -->
+        <article>
+            <h2>Blog : Pourquoi choisir un site web responsive ?</h2>
+            <p>Dans cet article, nous expliquons les avantages d'un site web qui s'adapte à tous les appareils.</p>
+        </article>
+    </main>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2025 Mon Site Web. Tous droits réservés.</p>
+    </footer>
+</body>
+
+</html>

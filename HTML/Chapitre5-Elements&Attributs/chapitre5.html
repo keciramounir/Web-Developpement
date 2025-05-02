@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemples d'Éléments et Attributs HTML</title>
+    <!-- Voici un fichier HTML qui applique tout ce que nous avons vu dans le guide, incluant des éléments HTML sémantiques et non-sémantiques, ainsi que des attributs courants. Il montre une structure complète avec des exemples d'utilisation des éléments et attributs HTML. -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        header,
+        footer {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 10px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: red;
+            font-weight: bold;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 400px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. En-tête de la page -->
+    <header>
+        <h1>Bienvenue sur Mon Site Web</h1>
+        <nav>
+            <a href="#section-1" title="Aller à la section 1">Section 1</a>
+            <a href="#section-2" title="Aller à la section 2">Section 2</a>
+            <a href="#section-3" title="Aller à la section 3">Section 3</a>
+        </nav>
+    </header>
+
+    <!-- 2. Section principale -->
+    <main>
+
+        <!-- Section 1 : Contenu principal -->
+        <section id="section-1">
+            <h2>Introduction à HTML</h2>
+            <p>Le langage HTML est utilisé pour structurer le contenu d’une page web.</p>
+            <p class="highlight">Voici un texte en surbrillance pour attirer l'attention.</p>
+            <p><a href="https://www.w3schools.com" target="_blank" title="Visiter W3Schools">Apprenez-en plus sur HTML
+                    ici.</a></p>
+        </section>
+
+        <!-- Section 2 : Images -->
+        <section id="section-2">
+            <h2>Exemples d'Images</h2>
+            <p>Voici quelques exemples d'images en HTML :</p>
+
+            <!-- Image locale -->
+            <div class="image-container">
+                <img src="https://via.placeholder.com/400" alt="Exemple d'image locale" title="Image locale">
+            </div>
+
+            <!-- Image avec style -->
+            <div class="image-container">
+                <img src="https://via.placeholder.com/400x250" alt="Image stylisée avec bordure"
+                    style="border: 5px solid #333; border-radius: 10px;" title="Image stylisée">
+            </div>
+
+            <!-- Image dans un lien -->
+            <div class="image-container">
+                <a href="https://www.example.com">
+                    <img src="https://via.placeholder.com/150" alt="Image dans un lien"
+                        title="Cliquez ici pour en savoir plus">
+                </a>
+            </div>
+
+        </section>
+
+        <!-- Section 3 : Formulaire et Contact -->
+        <section id="section-3">
+            <h2>Formulaire de Contact</h2>
+            <p>Si vous avez des questions, n'hésitez pas à nous contacter :</p>
+
+            <form action="/submit_form" method="post">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <input type="submit" value="Envoyer">
+            </form>
+        </section>
+
+    </main>
+
+    <!-- 3. Pied de page -->
+    <footer>
+        <p>&copy; 2025 Mon Site Web</p>
+    </footer>
+
+</body>
+
+</html>
