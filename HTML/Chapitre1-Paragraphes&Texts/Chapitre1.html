@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chapitre 1 - Les Éléments de Texte en HTML5</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Chapitre 1 : Introduction aux Éléments de Texte</h1>
+        <nav>
+            <p><a href="#section1">Paragraphe et Conteneurs</a> | <a href="#section2">Titres</a> | <a
+                    href="#section3">Mise en Forme</a></p>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="section1">
+            <h2>1. Paragraphe et Conteneurs</h2>
+            <p>Ceci est un paragraphe de base utilisant l’élément <code>&lt;p&gt;</code>.</p>
+            <div>Conteneur générique en bloc : <span>texte en ligne avec &lt;span&gt;</span>.</div>
+        </section>
+
+        <section id="section2">
+            <h2>2. Titres</h2>
+            <h3>Titre de niveau 3</h3>
+            <h4>Titre de niveau 4</h4>
+            <h5>Titre de niveau 5</h5>
+            <h6>Titre de niveau 6</h6>
+        </section>
+
+        <section id="section3">
+            <h2>3. Mise en Forme du Texte</h2>
+            <p><b>Gras simple</b> vs <strong>Gras important</strong></p>
+            <p><i>Italique simple</i> vs <em>Italique important</em></p>
+            <p><mark>Texte surligné</mark> et <u>texte souligné</u></p>
+            <p><small>Texte réduit</small>, H<sub>2</sub>O, et x<sup>2</sup></p>
+            <p><code>console.log("Hello");</code> est une ligne de code.</p>
+            <pre>
+function test() {
+  return true;
+}
+      </pre>
+            <p>Appuyez sur <kbd>Ctrl</kbd> + <kbd>S</kbd> pour sauvegarder.</p>
+            <p>Résultat : <samp>Opération réussie</samp></p>
+            <p>Variable : <var>x</var> = 5</p>
+            <p><abbr title="HyperText Markup Language">HTML</abbr> est un langage de balisage.</p>
+            <p><cite>Le Petit Prince</cite> est un livre célèbre.</p>
+            <p><q>Le savoir est une arme.</q></p>
+            <blockquote>
+                "Le plus grand risque est de ne prendre aucun risque." – Citation célèbre.
+            </blockquote>
+            <p>Ligne 1<br>Ligne 2<br>Ligne 3</p>
+            <p>CeMot<wbr>Impronnonçable</p>
+            <hr>
+            <p>Texte normal, <bdi>العربية</bdi> est isolé, et <bdo dir="rtl">Texte en RTL</bdo>.</p>
+        </section>
+
+        <aside>
+            <p>Note : Cette section est une remarque secondaire.</p>
+        </aside>
+
+        <article>
+            <h3>Article : Histoire d'un développeur</h3>
+            <p>Un jour, un développeur décida d’apprendre HTML5...</p>
+            <time datetime="2025-05-02">2 mai 2025</time>
+        </article>
+
+    </main>
+
+    <footer>
+        <p>© 2025 - Tous droits réservés.</p>
+    </footer>
+
+</body>
+
+</html>
