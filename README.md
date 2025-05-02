@@ -17,7 +17,7 @@ Ce cours a été conçu pour **t’initier au développement web moderne**, pas 
 ## 🛠️ Technologies abordées
 
 - 🌐 **HTML5** : structure de page
-- 🎨 **CSS3** : styles, animations, responsive design
+- 🎨 **CSS4** : styles, animations, responsive design
 - 🧠 **JavaScript** : logique, interactivité, DOM
 - 🧱 **Frontend avancé** : Tailwind CSS, React.js (niveau intermédiaire)
 - 🛠️ **Backend ** : Node.js, Express, MongoDB (pour les projets full-stack)
