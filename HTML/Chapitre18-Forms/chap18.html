@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemple de Formulaires Complets</title>
+</head>
+
+<body>
+
+    <!-- Formulaire d'Inscription -->
+    <section>
+        <h2>Formulaire d'Inscription</h2>
+        <form action="/inscription" method="POST">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" placeholder="Votre email" required />
+
+            <label for="motdepasse">Mot de passe :</label>
+            <input type="password" id="motdepasse" name="motdepasse" placeholder="Votre mot de passe" required />
+
+            <input type="submit" value="S'inscrire" />
+        </form>
+    </section>
+
+    <!-- Formulaire de Connexion -->
+    <section>
+        <h2>Formulaire de Connexion</h2>
+        <form action="/connexion" method="POST">
+            <label for="login-email">Email :</label>
+            <input type="email" id="login-email" name="email" placeholder="Votre email" required />
+
+            <label for="login-motdepasse">Mot de passe :</label>
+            <input type="password" id="login-motdepasse" name="motdepasse" placeholder="Votre mot de passe" required />
+
+            <input type="submit" value="Se connecter" />
+        </form>
+    </section>
+
+    <!-- Formulaire de Contact -->
+    <section>
+        <h2>Formulaire de Contact</h2>
+        <form action="/envoyer-message" method="POST">
+            <label for="contact-nom">Nom :</label>
+            <input type="text" id="contact-nom" name="nom" placeholder="Votre nom" required />
+
+            <label for="contact-email">Email :</label>
+            <input type="email" id="contact-email" name="email" placeholder="Votre email" required />
+
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+
+            <input type="submit" value="Envoyer" />
+        </form>
+    </section>
+
+    <!-- Formulaire d'Achat -->
+    <section>
+        <h2>Formulaire d'Achat</h2>
+        <form action="/commande" method="POST">
+            <label for="adresse">Adresse de livraison :</label>
+            <input type="text" id="adresse" name="adresse" placeholder="Votre adresse" required />
+
+            <label for="paiement">Méthode de paiement :</label>
+            <select id="paiement" name="paiement">
+                <option value="carte">Carte de crédit</option>
+                <option value="paypal">PayPal</option>
+            </select>
+
+            <input type="submit" value="Commander" />
+        </form>
+    </section>
+
+    <!-- Formulaire de Commentaires -->
+    <section>
+        <h2>Formulaire de Commentaires</h2>
+        <form action="/commentaires" method="POST">
+            <label for="feedback-nom">Nom :</label>
+            <input type="text" id="feedback-nom" name="nom" placeholder="Votre nom" />
+
+            <label for="commentaire">Votre avis :</label>
+            <textarea id="commentaire" name="commentaire" placeholder="Votre commentaire" required></textarea>
+
+            <input type="submit" value="Envoyer" />
+        </form>
+    </section>
+
+    <!-- Formulaire de Recherche -->
+    <section>
+        <h2>Formulaire de Recherche</h2>
+        <form action="/rechercher" method="GET">
+            <input type="search" name="query" placeholder="Rechercher..." required />
+            <input type="submit" value="Rechercher" />
+        </form>
+    </section>
+
+    <!-- Formulaire d'Abonnement à la Newsletter -->
+    <section>
+        <h2>Formulaire d'Abonnement à la Newsletter</h2>
+        <form action="/abonnement" method="POST">
+            <label for="newsletter-email">Email :</label>
+            <input type="email" id="newsletter-email" name="email" placeholder="Votre email" required />
+
+            <input type="submit" value="S'abonner" />
+        </form>
+    </section>
+
+    <!-- Formulaire de Mise à Jour du Profil -->
+    <section>
+        <h2>Formulaire de Mise à Jour du Profil</h2>
+        <form action="/mettre-a-jour" method="POST">
+            <label for="update-nom">Nom :</label>
+            <input type="text" id="update-nom" name="nom" placeholder="Votre nom" required />
+
+            <label for="update-email">Email :</label>
+            <input type="email" id="update-email" name="email" placeholder="Votre email" required />
+
+            <input type="submit" value="Mettre à jour" />
+        </form>
+    </section>
+
+</body>
+
+</html>

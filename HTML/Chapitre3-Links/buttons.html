@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Button UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0);
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .ripple-effect {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.7);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+
+        .btn-loading::after {
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            border: 3px solid transparent;
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .btn-3d {
+            box-shadow: 0 4px 0 #4a5568, 0 5px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.1s ease;
+        }
+
+        .btn-3d:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 #4a5568;
+        }
+
+        .btn-gradient {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            background-size: 200% 200%;
+            transition: background-position 0.5s ease;
+        }
+
+        .btn-gradient:hover {
+            background-position: right center;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+    <div class="max-w-md w-full space-y-8">
+        <div class="text-center">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Button UI Showcase</h1>
+            <p class="text-gray-600">Interactive buttons with various effects</p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg p-6 space-y-6">
+            <!-- Primary Button with Ripple Effect -->
+            <div class="group relative overflow-hidden">
+                <button id="primaryBtn"
+                    class="w-full btn-gradient text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-lg relative overflow-hidden">
+                    <span class="relative z-10 flex items-center justify-center">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Click for Ripple Effect
+                    </span>
+                </button>
+            </div>
+
+            <!-- 3D Button -->
+            <button id="threeDBtn"
+                class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg btn-3d hover:bg-indigo-700 transition-colors duration-200">
+                Press Me (3D Effect)
+            </button>
+
+            <!-- Toggle Button -->
+            <div class="flex justify-center">
+                <button id="toggleBtn"
+                    class="bg-gray-200 rounded-full p-1 w-20 h-10 flex items-center transition-all duration-300">
+                    <span id="toggleCircle"
+                        class="bg-white w-8 h-8 rounded-full shadow-md transform translate-x-0 transition-transform duration-300"></span>
+                </button>
+            </div>
+
+            <!-- Loading Button -->
+            <button id="loadingBtn"
+                class="w-full bg-green-600 text-white font-medium py-3 px-6 rounded-lg hover:bg-green-700 transition-colors duration-200 relative overflow-hidden">
+                <span id="loadingText">Click to Load</span>
+            </button>
+
+            <!-- Animated Button -->
+            <button id="animatedBtn"
+                class="w-full bg-pink-500 text-white font-medium py-3 px-6 rounded-lg hover:bg-pink-600 transition-all duration-200 hover:animate-bounce">
+                <i class="fas fa-magic mr-2"></i> Hover for Animation
+            </button>
+
+            <!-- Button with Pulse Effect -->
+            <button id="pulseBtn"
+                class="w-full bg-purple-600 text-white font-medium py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors duration-200 animate-pulse">
+                <i class="fas fa-heart mr-2"></i> Always Pulsing
+            </button>
+        </div>
+
+        <div class="text-center text-gray-500 text-sm">
+            <p>Click buttons to see different effects</p>
+        </div>
+    </div>
+
+    <script>
+        // Ripple Effect Button
+        document.getElementById('primaryBtn').addEventListener('click', function (e) {
+            // Create ripple element
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple-effect');
+
+            // Position the ripple
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = `${size}px`;
+            ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+            ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+
+            // Add ripple to button
+            this.appendChild(ripple);
+
+            // Remove ripple after animation
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+
+            // Bounce effect
+            this.classList.add('animate-bounce');
+            setTimeout(() => {
+                this.classList.remove('animate-bounce');
+            }, 1000);
+        });
+
+        // 3D Button Effect
+        document.getElementById('threeDBtn').addEventListener('mousedown', function () {
+            this.classList.add('active');
+        });
+
+        document.getElementById('threeDBtn').addEventListener('mouseup', function () {
+            this.classList.remove('active');
+        });
+
+        document.getElementById('threeDBtn').addEventListener('mouseleave', function () {
+            this.classList.remove('active');
+        });
+
+        // Toggle Button
+        let toggled = false;
+        document.getElementById('toggleBtn').addEventListener('click', function () {
+            toggled = !toggled;
+            const circle = document.getElementById('toggleCircle');
+            const button = this;
+
+            if (toggled) {
+                circle.classList.remove('translate-x-0');
+                circle.classList.add('translate-x-10');
+                button.classList.remove('bg-gray-200');
+                button.classList.add('bg-green-500');
+            } else {
+                circle.classList.remove('translate-x-10');
+                circle.classList.add('translate-x-0');
+                button.classList.remove('bg-green-500');
+                button.classList.add('bg-gray-200');
+            }
+        });
+
+        // Loading Button
+        document.getElementById('loadingBtn').addEventListener('click', function () {
+            const button = this;
+            const loadingText = document.getElementById('loadingText');
+
+            // Show loading state
+            button.classList.add('btn-loading');
+            loadingText.textContent = 'Loading...';
+            button.disabled = true;
+
+            // Simulate loading completion after 2 seconds
+            setTimeout(() => {
+                button.classList.remove('btn-loading');
+                loadingText.textContent = 'Completed!';
+
+                // Reset after another second
+                setTimeout(() => {
+                    loadingText.textContent = 'Click to Load';
+                    button.disabled = false;
+                }, 1000);
+            }, 2000);
+        });
+
+        // Animated Button - Add glow on hover
+        document.getElementById('animatedBtn').addEventListener('mouseenter', function () {
+            this.classList.add('shadow-lg', 'shadow-pink-500/50');
+        });
+
+        document.getElementById('animatedBtn').addEventListener('mouseleave', function () {
+            this.classList.remove('shadow-lg', 'shadow-pink-500/50');
+        });
+
+        // Pulse Button - Change color on click
+        document.getElementById('pulseBtn').addEventListener('click', function () {
+            const colors = ['bg-purple-600', 'bg-blue-600', 'bg-red-600', 'bg-yellow-600'];
+            const currentColor = this.className.match(/bg-(purple|blue|red|yellow)-600/);
+
+            let nextColor;
+            if (!currentColor) {
+                nextColor = colors[0];
+            } else {
+                const currentIndex = colors.indexOf(currentColor[0]);
+                nextColor = colors[(currentIndex + 1) % colors.length];
+            }
+
+            // Remove all color classes
+            colors.forEach(color => this.classList.remove(color));
+            // Add new color
+            this.classList.add(nextColor);
+
+            // Highlight with a bigger pulse
+            this.classList.add('animate-pulse', 'scale-110');
+            setTimeout(() => {
+                this.classList.remove('scale-110');
+            }, 300);
+        });
+    </script>
+</body>
+
+</html>

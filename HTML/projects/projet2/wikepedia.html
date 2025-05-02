@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mounir - Encyclopedia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #202122;
+            background-color: #f6f6f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #a7d7f9;
+            padding: 0.5em 1em;
+        }
+
+        .logo {
+            font-family: 'Times New Roman', serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .search-box {
+            border: 1px solid #a2a9b1;
+            padding: 5px;
+            width: 200px;
+        }
+
+        .search-btn {
+            background-color: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .content {
+            display: flex;
+            padding: 1em;
+        }
+
+        .main-content {
+            flex: 1;
+            padding-right: 1em;
+        }
+
+        .sidebar {
+            width: 300px;
+            padding-left: 1em;
+            border-left: 1px solid #a7d7f9;
+        }
+
+        h1 {
+            font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
+            font-weight: normal;
+            border-bottom: 1px solid #a2a9b1;
+            padding-bottom: 0.25em;
+            margin-bottom: 0.5em;
+        }
+
+        h2 {
+            font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
+            font-weight: normal;
+            border-bottom: 1px solid #a2a9b1;
+            padding-bottom: 0.25em;
+            margin-top: 1em;
+        }
+
+        .infobox {
+            border: 1px solid #a2a9b1;
+            background-color: #f8f9fa;
+            padding: 0.5em;
+            font-size: 0.9em;
+            float: right;
+            margin: 0 0 1em 1em;
+            width: 250px;
+        }
+
+        .infobox-title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 0.5em;
+        }
+
+        .infobox-image {
+            text-align: center;
+            margin-bottom: 0.5em;
+        }
+
+        .infobox-data {
+            margin-bottom: 0.5em;
+        }
+
+        .infobox-label {
+            font-weight: bold;
+        }
+
+        .toc {
+            background-color: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            padding: 0.5em 1em;
+            display: inline-block;
+            margin: 1em 0;
+        }
+
+        .toc-title {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 0.5em;
+        }
+
+        .toc-list {
+            list-style-type: none;
+            padding-left: 1em;
+            margin: 0;
+        }
+
+        .toc-level-1 {
+            margin-bottom: 0.3em;
+        }
+
+        .toc-level-2 {
+            margin-left: 1em;
+            margin-bottom: 0.2em;
+        }
+
+        .citation {
+            font-size: 0.85em;
+            vertical-align: super;
+            color: #0645ad;
+        }
+
+        .references {
+            font-size: 0.9em;
+            margin-top: 1em;
+            border-top: 1px solid #a2a9b1;
+            padding-top: 0.5em;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            border-top: 1px solid #a7d7f9;
+            padding: 1em;
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        .navbox {
+            background-color: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            padding: 0.5em;
+            font-size: 0.9em;
+            margin-top: 1em;
+        }
+
+        .navbox-title {
+            font-weight: bold;
+            margin-bottom: 0.5em;
+        }
+
+        .navbox-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .navbox-item {
+            display: inline;
+        }
+
+        .navbox-item:after {
+            content: " · ";
+        }
+
+        .navbox-item:last-child:after {
+            content: "";
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header flex justify-between items-center">
+            <div>
+                <a href="#" class="logo">Encyclopedia</a>
+            </div>
+            <div>
+                <input type="text" class="search-box" placeholder="Search Encyclopedia">
+                <button class="search-btn">Search</button>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="main-content">
+                <h1>Mounir</h1>
+
+                <div class="infobox">
+                    <div class="infobox-title">Mounir</div>
+                    <div class="infobox-image">
+                        <img src="https://via.placeholder.com/200x250" alt="Mounir">
+                    </div>
+                    <div class="infobox-data">
+                        <span class="infobox-label">Pronunciation:</span> moo-NEER
+                    </div>
+                    <div class="infobox-data">
+                        <span class="infobox-label">Gender:</span> Male
+                    </div>
+                    <div class="infobox-data">
+                        <span class="infobox-label">Origin:</span> Arabic
+                    </div>
+                    <div class="infobox-data">
+                        <span class="infobox-label">Meaning:</span> "Shining", "Illuminating"
+                    </div>
+                    <div class="infobox-data">
+                        <span class="infobox-label">Related names:</span> Munir, Muneer
+                    </div>
+                </div>
+
+                <p><strong>Mounir</strong> (Arabic: منير) is a masculine given name of Arabic origin meaning "shining"
+                    or "illuminating". It is a common name in Arabic-speaking countries and among Muslim communities
+                    worldwide.</p>
+
+                <div class="toc">
+                    <div class="toc-title">Contents</div>
+                    <ul class="toc-list">
+                        <li class="toc-level-1"><a href="#etymology">1 Etymology</a></li>
+                        <li class="toc-level-1"><a href="#variations">2 Variations</a></li>
+                        <li class="toc-level-1"><a href="#notable-people">3 Notable people</a>
+                            <ul class="toc-list">
+                                <li class="toc-level-2"><a href="#musicians">3.1 Musicians</a></li>
+                                <li class="toc-level-2"><a href="#sports">3.2 Sports</a></li>
+                                <li class="toc-level-2"><a href="#politics">3.3 Politics</a></li>
+                            </ul>
+                        </li>
+                        <li class="toc-level-1"><a href="#references">4 References</a></li>
+                    </ul>
+                </div>
+
+                <h2 id="etymology">Etymology</h2>
+                <p>The name Mounir derives from the Arabic root N-W-R (ن-و-ر), which relates to light and illumination.
+                    It is the active participle form of the verb "anara" (أنار), meaning "to illuminate" or "to light
+                    up". The name carries connotations of enlightenment, brightness, and guidance.<sup
+                        class="citation">[1]</sup></p>
+
+                <h2 id="variations">Variations</h2>
+                <p>The name has several variations across different languages and regions:</p>
+                <ul>
+                    <li><strong>Munir</strong> - Common alternative spelling</li>
+                    <li><strong>Muneer</strong> - Another English transliteration</li>
+                    <li><strong>Munira</strong> - Feminine form of the name</li>
+                    <li><strong>Nur/Noor</strong> - Related names from the same root meaning "light"</li>
+                </ul>
+
+                <h2 id="notable-people">Notable people</h2>
+                <h3 id="musicians">Musicians</h3>
+                <ul>
+                    <li><strong>Mounir Mourad</strong> (1922-1981) - Egyptian actor, singer, and composer</li>
+                    <li><strong>Mounir Bazza</strong> (born 1960) - Algerian raï singer</li>
+                    <li><strong>Mounir Troudi</strong> (born 1974) - Tunisian singer and composer</li>
+                </ul>
+
+                <h3 id="sports">Sports</h3>
+                <ul>
+                    <li><strong>Mounir El Hamdaoui</strong> (born 1984) - Moroccan-Dutch footballer</li>
+                    <li><strong>Mounir Diane</strong> (born 1987) - French middle-distance runner</li>
+                    <li><strong>Mounir Obadi</strong> (born 1985) - Moroccan footballer</li>
+                </ul>
+
+                <h3 id="politics">Politics</h3>
+                <ul>
+                    <li><strong>Mounir Bouchenaki</strong> (born 1943) - Algerian archaeologist and UNESCO official</li>
+                    <li><strong>Mounir Fakhry Abdel Nour</strong> (born 1945) - Egyptian politician</li>
+                    <li><strong>Mounir Majidi</strong> (born 1961) - Personal secretary to King Mohammed VI of Morocco
+                    </li>
+                </ul>
+
+                <h2 id="references">References</h2>
+                <div class="references">
+                    <ol>
+                        <li>Arabic Names and Their Meanings, Arab Cultural Center, 2010</li>
+                        <li>"The Book of Arabic Names" by Samir Abu-Absi, 2005</li>
+                        <li>"Dictionary of Muslim Names" by S.A. Rahman, 1999</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="navbox">
+                    <div class="navbox-title">Related topics</div>
+                    <ul class="navbox-list">
+                        <li class="navbox-item"><a href="#">Arabic names</a></li>
+                        <li class="navbox-item"><a href="#">Islamic names</a></li>
+                        <li class="navbox-item"><a href="#">Given names</a></li>
+                        <li class="navbox-item"><a href="#">Arabic language</a></li>
+                        <li class="navbox-item"><a href="#">Semitic roots</a></li>
+                    </ul>
+                </div>
+
+                <div class="navbox">
+                    <div class="navbox-title">Other names</div>
+                    <ul class="navbox-list">
+                        <li class="navbox-item"><a href="#">Nur</a></li>
+                        <li class="navbox-item"><a href="#">Noor</a></li>
+                        <li class="navbox-item"><a href="#">Munira</a></li>
+                        <li class="navbox-item"><a href="#">Anwar</a></li>
+                        <li class="navbox-item"><a href="#">Manar</a></li>
+                    </ul>
+                </div>
+
+                <div class="navbox">
+                    <div class="navbox-title">Categories</div>
+                    <ul class="navbox-list">
+                        <li class="navbox-item"><a href="#">Arabic masculine given names</a></li>
+                        <li class="navbox-item"><a href="#">Muslim given names</a></li>
+                        <li class="navbox-item"><a href="#">Names meaning light</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>This page was last edited on 15 October 2023, at 14:32 (UTC).</p>
+            <p>Text is available under the Creative Commons Attribution-ShareAlike License 3.0; additional terms may
+                apply.</p>
+        </div>
+    </div>
+</body>
+
+</html>

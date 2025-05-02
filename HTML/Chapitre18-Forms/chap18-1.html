@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire Complet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-container input,
+        .form-container select,
+        .form-container button,
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        fieldset {
+            border: 1px solid #ddd;
+            padding: 15px;
+        }
+
+        legend {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-container">
+        <h2>Formulaire d'Inscription Complète</h2>
+        <form action="/soumettre" method="POST">
+
+            <!-- Text input -->
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+
+            <!-- Email input -->
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" placeholder="Votre email" required>
+
+            <!-- Password input -->
+            <label for="motdepasse">Mot de passe :</label>
+            <input type="password" id="motdepasse" name="motdepasse" placeholder="Votre mot de passe" required>
+
+            <!-- Checkbox -->
+            <label>
+                <input type="checkbox" name="acceptation" required> J'accepte les conditions
+            </label>
+
+            <!-- Radio buttons -->
+            <fieldset>
+                <legend>Genre :</legend>
+                <label><input type="radio" name="genre" value="homme" required> Homme</label><br>
+                <label><input type="radio" name="genre" value="femme" required> Femme</label><br>
+                <label><input type="radio" name="genre" value="autre"> Autre</label>
+            </fieldset>
+
+            <!-- Date input -->
+            <label for="dateNaissance">Date de naissance :</label>
+            <input type="date" id="dateNaissance" name="dateNaissance" required>
+
+            <!-- Number input -->
+            <label for="age">Âge :</label>
+            <input type="number" id="age" name="age" placeholder="Votre âge" min="18" max="120" required>
+
+            <!-- File input -->
+            <label for="cv">Téléchargez votre CV :</label>
+            <input type="file" id="cv" name="cv">
+
+            <!-- Select input -->
+            <label for="pays">Pays :</label>
+            <select id="pays" name="pays" required>
+                <option value="france">France</option>
+                <option value="algerie">Algérie</option>
+                <option value="canada">Canada</option>
+            </select>
+
+            <!-- Datalist input -->
+            <label for="fruit">Fruit préféré :</label>
+            <input list="fruits" id="fruit" name="fruit">
+            <datalist id="fruits">
+                <option value="Pomme">
+                <option value="Banane">
+                <option value="Orange">
+                <option value="Fraise">
+            </datalist>
+
+            <!-- Textarea input -->
+            <label for="commentaire">Commentaire :</label>
+            <textarea id="commentaire" name="commentaire" rows="4"
+                placeholder="Écrivez votre commentaire ici..."></textarea>
+
+            <!-- Output -->
+            <output name="resultat">0</output>
+
+            <!-- Submit button -->
+            <input type="submit" value="S'inscrire">
+        </form>
+    </div>
+
+</body>
+
+</html>

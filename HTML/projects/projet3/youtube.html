@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #0f0f0f;
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #0f0f0f;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #303030;
+            padding: 0 16px;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 56px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .menu-btn:hover {
+            background-color: #272727;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .logo-icon {
+            color: #ff0000;
+            font-size: 24px;
+            margin-right: 4px;
+        }
+
+        .logo-text {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .header-center {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            max-width: 640px;
+            margin: 0 16px;
+        }
+
+        .search-container {
+            display: flex;
+            flex: 1;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            background-color: #121212;
+            border: 1px solid #303030;
+            border-radius: 20px 0 0 20px;
+            padding: 10px 16px;
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: #3ea6ff;
+        }
+
+        .search-btn {
+            background-color: #222222;
+            border: 1px solid #303030;
+            border-left: none;
+            border-radius: 0 20px 20px 0;
+            width: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .search-btn:hover {
+            background-color: #303030;
+        }
+
+        .voice-search-btn {
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .voice-search-btn:hover {
+            background-color: #272727;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-icon-btn {
+            background: none;
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .header-icon-btn:hover {
+            background-color: #272727;
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #3ea6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .progress-bar {
+            height: 3px;
+            background-color: #ff0000;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            background-color: #0f0f0f;
+            width: 240px;
+            height: calc(100vh - 56px);
+            position: fixed;
+            top: 56px;
+            left: 0;
+            overflow-y: auto;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            z-index: 90;
+        }
+
+        .sidebar.open {
+            transform: translateX(0);
+        }
+
+        .sidebar-section {
+            padding: 12px 0;
+            border-bottom: 1px solid #303030;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 24px;
+            cursor: pointer;
+        }
+
+        .sidebar-item:hover {
+            background-color: #272727;
+        }
+
+        .sidebar-item i {
+            font-size: 20px;
+            margin-right: 24px;
+            width: 24px;
+            text-align: center;
+        }
+
+        .sidebar-title {
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 24px;
+            color: #aaa;
+        }
+
+        .channel-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            margin-right: 24px;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            margin-left: 0;
+            padding: 24px 16px;
+            margin-top: 56px;
+            transition: margin-left 0.3s ease;
+        }
+
+        .main-content.sidebar-open {
+            margin-left: 240px;
+        }
+
+        .categories {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 16px;
+            white-space: nowrap;
+            scrollbar-width: none;
+        }
+
+        .categories::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-btn {
+            background-color: #272727;
+            color: white;
+            border: none;
+            border-radius: 16px;
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .category-btn:hover {
+            background-color: #3f3f3f;
+        }
+
+        .category-btn.active {
+            background-color: white;
+            color: black;
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .video-card {
+            background-color: #181818;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .thumbnail-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            /* 16:9 aspect ratio */
+            background-color: #000;
+        }
+
+        .thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-duration {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .video-info {
+            padding: 12px;
+            display: flex;
+        }
+
+        .channel-avatar-small {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            margin-right: 12px;
+            background-color: #3ea6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+
+        .video-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .video-meta {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Mobile Search */
+        .mobile-search {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0f0f0f;
+            z-index: 100;
+            display: none;
+            padding: 16px;
+        }
+
+        .mobile-search.active {
+            display: block;
+        }
+
+        .mobile-search-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            margin-right: 16px;
+            cursor: pointer;
+        }
+
+        .mobile-search-input {
+            flex: 1;
+            background-color: #121212;
+            border: 1px solid #303030;
+            border-radius: 20px;
+            padding: 10px 16px;
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-results {
+            color: #aaa;
+            padding: 8px 16px;
+        }
+
+        .search-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            cursor: pointer;
+        }
+
+        .search-item i {
+            margin-right: 16px;
+            color: #606060;
+        }
+
+        /* Video Player Modal */
+        .video-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+
+        .video-modal.active {
+            display: flex;
+        }
+
+        .video-container {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .close-video-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .video-player {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background-color: black;
+        }
+
+        .video-details {
+            background-color: #181818;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 8px;
+        }
+
+        .video-title-large {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .channel-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .channel-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .channel-avatar-large {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #3ea6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+        }
+
+        .channel-name {
+            font-weight: 500;
+        }
+
+        .channel-subs {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .subscribe-btn {
+            background-color: #cc0000;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 16px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .subscribe-btn:hover {
+            background-color: #ff0000;
+        }
+
+        .video-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .action-buttons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            background: none;
+            border: none;
+            color: white;
+            padding: 8px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .action-btn i {
+            margin-right: 8px;
+        }
+
+        .action-btn:hover {
+            background-color: #272727;
+        }
+
+        /* Ripple Effect */
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple-effect {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.7);
+            transform: scale(0);
+            pointer-events: none;
+            animation: ripple 0.6s linear;
+        }
+
+        /* Responsive Styles */
+        @media (min-width: 768px) {
+            .sidebar {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 240px;
+            }
+
+            .mobile-search-btn {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-center {
+                display: none;
+            }
+
+            .header-icon-btn {
+                display: none;
+            }
+
+            .mobile-search-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <button class="menu-btn" id="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">
+                    <i class="fab fa-youtube logo-icon"></i>
+                    <span class="logo-text">YouTube</span>
+                </div>
+            </div>
+
+            <div class="header-center">
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <button class="voice-search-btn">
+                    <i class="fas fa-microphone"></i>
+                </button>
+            </div>
+
+            <div class="header-right">
+                <button class="header-icon-btn mobile-hidden">
+                    <i class="fas fa-video"></i>
+                </button>
+                <button class="header-icon-btn mobile-hidden">
+                    <i class="fas fa-bell"></i>
+                </button>
+                <button class="mobile-search-btn header-icon-btn" id="mobile-search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div class="user-avatar">U</div>
+            </div>
+        </div>
+        <div class="progress-bar"></div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-compass"></i>
+                <span>Explore</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-subscript"></i>
+                <span>Subscriptions</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-item">
+                <i class="fas fa-bookmark"></i>
+                <span>Library</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-history"></i>
+                <span>History</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-clock"></i>
+                <span>Watch Later</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-thumbs-up"></i>
+                <span>Liked Videos</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">SUBSCRIPTIONS</div>
+            <div class="sidebar-item">
+                <div class="channel-avatar" style="background-color: #ff0000;"></div>
+                <span>PewDiePie</span>
+            </div>
+            <div class="sidebar-item">
+                <div class="channel-avatar" style="background-color: #0066ff;"></div>
+                <span>MrBeast</span>
+            </div>
+            <div class="sidebar-item">
+                <div class="channel-avatar" style="background-color: #00cc66;"></div>
+                <span>Mark Rober</span>
+            </div>
+            <div class="sidebar-item">
+                <div class="channel-avatar" style="background-color: #ffcc00;"></div>
+                <span>Dude Perfect</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="main-content">
+        <!-- Categories -->
+        <div class="categories">
+            <button class="category-btn active">All</button>
+            <button class="category-btn">Music</button>
+            <button class="category-btn">Gaming</button>
+            <button class="category-btn">Live</button>
+            <button class="category-btn">Programming</button>
+            <button class="category-btn">Comedy</button>
+            <button class="category-btn">Podcasts</button>
+            <button class="category-btn">Recently uploaded</button>
+            <button class="category-btn">Watched</button>
+        </div>
+
+        <!-- Videos Grid -->
+        <div class="videos-grid">
+            <!-- Video Card 1 -->
+            <div class="video-card" style="animation-delay: 0.1s">
+                <div class="thumbnail-container">
+                    <img src="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Thumbnail" class="thumbnail">
+                    <span class="video-duration">10:30</span>
+                </div>
+                <div class="video-info">
+                    <div class="channel-avatar-small">R</div>
+                    <div>
+                        <div class="video-title">Never Gonna Give You Up - Rick Astley (Official Music Video)</div>
+                        <div class="video-meta">Rick Astley • 1.2B views • 5 years ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Card 2 -->
+            <div class="video-card" style="animation-delay: 0.2s">
+                <div class="thumbnail-container">
+                    <img src="https://i.ytimg.com/vi/9bZkp7q19f0/hqdefault.jpg" alt="Thumbnail" class="thumbnail">
+                    <span class="video-duration">4:12</span>
+                </div>
+                <div class="video-info">
+                    <div class="channel-avatar-small">P</div>
+                    <div>
+                        <div class="video-title">PSY - GANGNAM STYLE(강남스타일) M/V</div>
+                        <div class="video-meta">officialpsy • 4.5B views • 10 years ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Card 3 -->
+            <div class="video-card" style="animation-delay: 0.3s">
+                <div class="thumbnail-container">
+                    <img src="https://i.ytimg.com/vi/JGwWNGJdvx8/hqdefault.jpg" alt="Thumbnail" class="thumbnail">
+                    <span class="video-duration">3:23</span>
+                </div>
+                <div class="video-info">
+                    <div class="channel-avatar-small">E</div>
+                    <div>
+                        <div class="video-title">Ed Sheeran - Shape of You (Official Music Video)</div>
+                        <div class="video-meta">Ed Sheeran • 5.8B views • 6 years ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Card 4 -->
+            <div class="video-card" style="animation-delay: 0.4s">
+                <div class="thumbnail-container">
+                    <img src="https://i.ytimg.com/vi/kJQP7kiw5Fk/hqdefault.jpg" alt="Thumbnail" class="thumbnail">
+                    <span class="video-duration">4:17</span>
+                </div>
+                <div class="video-info">
+                    <div class="channel-avatar-small">L</div>
+                    <div>
+                        <div class="video-title">Luis Fonsi - Despacito ft. Daddy Yankee</div>
+                        <div class="video-meta">Luis Fonsi • 7.9B views • 6 years ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Card 5 -->
+            <div class="video-card" style="animation-delay: 0.5s">
+                <div class="thumbnail-container">
+                    <img src="https://i.ytimg.com/vi/RgKAFK5djSk/hqdefault.jpg" alt="Thumbnail" class="thumbnail">
+                    <span class="video-duration">3:53</span>
+                </div>
+                <div class="video-info">
+                    <div class="channel-avatar-small">W</div>
+                    <div>
+                        <div class="video-title">Wiz Khalifa - See You Again ft. Charlie Puth [Official Video]</div>
+                        <div class="video-meta">Wiz Khalifa • 6.1B views • 8 years ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Card 6 -->
+            <div class="video-card" style="animation-delay: 0.6s">
+                <div class="thumbnail-container">
+                    <img src="https://i.ytimg.com/vi/OPf0YbXqDm0/hqdefault.jpg" alt="Thumbnail" class="thumbnail">
+                    <span class="video-duration">2:54</span>
+                </div>
+                <div class="video-info">
+                    <div class="channel-avatar-small">M</div>
+                    <div>
+                        <div class="video-title">Mark Ronson - Uptown Funk (Official Video) ft. Bruno Mars</div>
+                        <div class="video-meta">Mark Ronson • 4.8B views • 8 years ago</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile Search -->
+    <div class="mobile-search" id="mobile-search">
+        <div class="mobile-search-header">
+            <button class="back-btn" id="close-search-btn">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <input type="text" class="mobile-search-input" placeholder="Search YouTube">
+        </div>
+        <div class="search-results">
+            <div class="search-item">
+                <i class="fas fa-clock"></i>
+                <span>react tutorials</span>
+            </div>
+            <div class="search-item">
+                <i class="fas fa-clock"></i>
+                <span>tailwind css</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Player Modal -->
+    <div class="video-modal" id="video-modal">
+        <button class="close-video-btn" id="close-video-btn">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="video-container">
+            <video class="video-player" id="video-player" controls>
+                <source src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" type="video/mp4">
+            </video>
+            <div class="video-details">
+                <h2 class="video-title-large" id="video-title">Video Title</h2>
+                <div class="channel-info">
+                    <div class="channel-left">
+                        <div class="channel-avatar-large">C</div>
+                        <div>
+                            <div class="channel-name">Channel Name</div>
+                            <div class="channel-subs">1.2M subscribers</div>
+                        </div>
+                    </div>
+                    <button class="subscribe-btn ripple">Subscribe</button>
+                </div>
+                <div class="video-actions">
+                    <div class="action-buttons">
+                        <button class="action-btn">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span>125K</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-thumbs-down"></i>
+                            <span>1K</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-share"></i>
+                            <span>Share</span>
+                        </button>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn">
+                            <i class="fas fa-plus"></i>
+                            <span>Save</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle sidebar
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('main-content');
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            mainContent.classList.toggle('sidebar-open');
+        });
+
+        // Mobile search
+        const mobileSearchBtn = document.getElementById('mobile-search-btn');
+        const mobileSearch = document.getElementById('mobile-search');
+        const closeSearchBtn = document.getElementById('close-search-btn');
+
+        mobileSearchBtn.addEventListener('click', () => {
+            mobileSearch.classList.add('active');
+        });
+
+        closeSearchBtn.addEventListener('click', () => {
+            mobileSearch.classList.remove('active');
+        });
+
+        // Video modal
+        const videoModal = document.getElementById('video-modal');
+        const closeVideoBtn = document.getElementById('close-video-btn');
+        const videoPlayer = document.getElementById('video-player');
+        const videoTitle = document.getElementById('video-title');
+
+        // When clicking a video card
+        document.querySelectorAll('.video-card').forEach((card, index) => {
+            card.addEventListener('click', () => {
+                const title = card.querySelector('.video-title').textContent;
+                videoTitle.textContent = title;
+                videoModal.classList.add('active');
+                videoPlayer.play();
+            });
+        });
+
+        closeVideoBtn.addEventListener('click', () => {
+            videoModal.classList.remove('active');
+            videoPlayer.pause();
+        });
+
+        // Ripple effect
+        document.querySelectorAll('.ripple').forEach(button => {
+            button.addEventListener('click', function (e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const ripple = document.createElement('span');
+                ripple.className = 'ripple-effect';
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+
+                this.appendChild(ripple);
+
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Simulate progress bar loading
+        const progressBar = document.querySelector('.progress-bar');
+        let width = 0;
+
+        function startProgress() {
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        progressBar.style.width = '0%';
+                        width = 0;
+                        startProgress();
+                    }, 500);
+                } else {
+                    width += 5;
+                    progressBar.style.width = `${width}%`;
+                }
+            }, 200);
+        }
+
+        startProgress();
+
+        // Responsive adjustments
+        function handleResize() {
+            if (window.innerWidth >= 768) {
+                sidebar.classList.add('open');
+                mainContent.classList.add('sidebar-open');
+            } else {
+                sidebar.classList.remove('open');
+                mainContent.classList.remove('sidebar-open');
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
+    </script>
+</body>
+
+</html>

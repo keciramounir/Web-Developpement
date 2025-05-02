@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>🌐 HTML Web APIs - Démo</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background: #f4f4f4;
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+
+        .zone {
+            width: 200px;
+            height: 100px;
+            border: 2px dashed #3498db;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        #dragme {
+            width: 100px;
+            padding: 10px;
+            background: #2980b9;
+            color: #fff;
+            cursor: grab;
+        }
+
+        pre {
+            background: #ecf0f1;
+            padding: 10px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🌐 Démo Web APIs HTML</h1>
+
+    <!-- 📍 Geolocation -->
+    <h2>📍 Géolocalisation</h2>
+    <button onclick="getLocation()">Obtenir ma position</button>
+    <p id="position">Position : inconnue</p>
+
+    <!-- 📂 Drag and Drop -->
+    <h2>📂 Drag and Drop</h2>
+    <div id="dragme" draggable="true" ondragstart="drag(event)">Glisser moi</div>
+    <div id="zone" class="zone" ondrop="drop(event)" ondragover="allowDrop(event)">
+        Déposez ici
+    </div>
+
+    <!-- 💾 Web Storage -->
+    <h2>💾 Web Storage</h2>
+    <input type="text" id="nom" placeholder="Entrez votre nom" />
+    <button onclick="saveName()">Enregistrer</button>
+    <p>Nom sauvegardé : <span id="nomAffiche"></span></p>
+
+    <!-- 🧵 Web Worker -->
+    <h2>🧵 Web Worker</h2>
+    <button onclick="startWorker()">Calculer 10 * 2</button>
+    <p id="resultWorker">Résultat : </p>
+
+    <!-- 🔁 Server-Sent Events -->
+    <h2>🔁 Server-Sent Events</h2>
+    <button onclick="startSSE()">Démarrer le flux</button>
+    <pre id="sseData">En attente de données du serveur...</pre>
+
+    <script>
+        // 📍 Geolocation
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    document.getElementById("position").innerText =
+                        "Latitude : " + position.coords.latitude +
+                        ", Longitude : " + position.coords.longitude;
+                });
+            } else {
+                document.getElementById("position").innerText = "Géolocalisation non supportée";
+            }
+        }
+
+        // 📂 Drag and Drop
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+
+        // 💾 Web Storage
+        function saveName() {
+            let nom = document.getElementById("nom").value;
+            localStorage.setItem("nom", nom);
+            document.getElementById("nomAffiche").innerText = nom;
+        }
+        // Charger automatiquement si stocké
+        window.onload = () => {
+            const nomStocke = localStorage.getItem("nom");
+            if (nomStocke) document.getElementById("nomAffiche").innerText = nomStocke;
+        }
+
+        // 🧵 Web Worker
+        function startWorker() {
+            const blob = new Blob([`
+        onmessage = function(e) {
+          postMessage("Résultat : " + (e.data * 2));
+        };
+      `], { type: "application/javascript" });
+
+            const worker = new Worker(URL.createObjectURL(blob));
+            worker.postMessage(10);
+            worker.onmessage = function (e) {
+                document.getElementById("resultWorker").innerText = e.data;
+            };
+        }
+
+        // 🔁 Server-Sent Events
+        function startSSE() {
+            const source = new EventSource("sse");
+            source.onmessage = function (event) {
+                document.getElementById("sseData").textContent += "\\n" + event.data;
+            };
+        }
+    </script>
+
+</body>
+
+</html>
