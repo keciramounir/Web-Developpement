@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mise en page HTML & Responsive Design</title>
+    <style>
+        /* Réinitialisation de base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Mise en page avec Grid */
+        .container {
+            display: grid;
+            grid-template-areas:
+                "header header"
+                "nav nav"
+                "main aside"
+                "footer footer";
+            grid-template-columns: 3fr 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        header {
+            grid-area: header;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        nav {
+            grid-area: nav;
+            background-color: #e9ecef;
+            padding: 20px;
+        }
+
+        main {
+            grid-area: main;
+            background-color: #dee2e6;
+            padding: 20px;
+        }
+
+        aside {
+            grid-area: aside;
+            background-color: #ced4da;
+            padding: 20px;
+        }
+
+        footer {
+            grid-area: footer;
+            background-color: #adb5bd;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-areas:
+                    "header"
+                    "nav"
+                    "main"
+                    "aside"
+                    "footer";
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Mon Site Web</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">À propos</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h2>Contenu Principal</h2>
+            <p>
+                Bienvenue sur mon site web. Ceci est un exemple de mise en page
+                utilisant HTML et CSS pour créer un design responsive adapté à tous
+                les appareils.
+            </p>
+        </main>
+        <aside>
+            <h2>Informations Supplémentaires</h2>
+            <p>
+                Voici quelques informations supplémentaires affichées dans la barre
+                latérale.
+            </p>
+        </aside>
+        <footer>
+            <p>&copy; 2025 Mon Site Web. Tous droits réservés.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

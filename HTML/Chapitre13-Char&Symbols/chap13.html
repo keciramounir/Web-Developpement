@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Exemples HTML Complet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2 {
+            color: #2c3e50;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        th,
+        td {
+            border: 1px solid #bdc3c7;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>📚 Exemples HTML Complet</h1>
+
+    <section>
+        <h2>1. 🔡 Entités HTML</h2>
+        <p>Voici quelques entités HTML courantes :</p>
+        <ul>
+            <li><code>&lt;</code> = &lt;</li>
+            <li><code>&gt;</code> = &gt;</li>
+            <li><code>&amp;</code> = &amp;</li>
+            <li><code>&quot;</code> = &quot;</li>
+            <li><code>&copy;</code> = &copy;</li>
+        </ul>
+        <p>Exemple avec balise échappée : <code>&lt;script&gt;alert('Hello')&lt;/script&gt;</code></p>
+    </section>
+
+    <section>
+        <h2>2. 🔣 Symboles HTML</h2>
+        <table>
+            <tr>
+                <th>Symbole</th>
+                <th>Code HTML</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>&copy;</td>
+                <td><code>&amp;copy;</code></td>
+                <td>Copyright</td>
+            </tr>
+            <tr>
+                <td>&euro;</td>
+                <td><code>&amp;euro;</code></td>
+                <td>Euro</td>
+            </tr>
+            <tr>
+                <td>&rarr;</td>
+                <td><code>&amp;rarr;</code></td>
+                <td>Flèche droite</td>
+            </tr>
+            <tr>
+                <td>&check;</td>
+                <td><code>&amp;check;</code></td>
+                <td>Validation</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>3. 😀 Emojis HTML (Unicode)</h2>
+        <p>
+            Visage souriant : &#128512;<br>
+            Cœur rouge : &#10084;&#65039;<br>
+            Fusée : &#128640;
+        </p>
+        <p>Utilisation dans une phrase : Bienvenue sur mon site &#128512; 🚀</p>
+    </section>
+
+    <section>
+        <h2>4. 🧬 Charset UTF-8</h2>
+        <p>Les caractères accentués s'affichent correctement grâce à <code>&lt;meta charset="UTF-8"&gt;</code> :</p>
+        <p>Mots avec accents : éléphant, façade, naïf, cœur.</p>
+    </section>
+
+    <section>
+        <h2>5. 🌐 Encodage d'URL</h2>
+        <p>Voici une URL contenant des caractères encodés :</p>
+        <p><code>https://site.com/recherche?mot=%C3%A9t%C3%A9</code></p>
+        <p>Décodée : <code>https://site.com/recherche?mot=été</code></p>
+        <p>Caractères encodés :</p>
+        <ul>
+            <li>Espace = <code>%20</code></li>
+            <li>& = <code>%26</code></li>
+            <li>? = <code>%3F</code></li>
+            <li>é = <code>%C3%A9</code></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>6. 🆚 HTML vs XHTML</h2>
+        <p><strong>HTML (souple) :</strong> les balises comme <code>&lt;br&gt;</code> peuvent être non fermées.</p>
+        <p>Exemple HTML : <code>&lt;br&gt;</code></p>
+        <br>
+        <p><strong>XHTML (strict) :</strong> toutes les balises doivent être fermées correctement.</p>
+        <p>Exemple XHTML : <code>&lt;br /&gt;</code></p>
+        <br />
+        <p>Attributs en minuscule obligatoire : <code>&lt;a href="..."&gt;</code></p>
+    </section>
+
+    <footer>
+        <hr>
+        <p>&copy; 2025 — Démonstration HTML complète par Mounir Kecira</p>
+    </footer>
+
+</body>
+
+</html>
