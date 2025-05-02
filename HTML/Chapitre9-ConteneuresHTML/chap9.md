@@ -21,7 +21,7 @@ Le **`<div>`** est l'élément de conteneur le plus commun en HTML. Il est utili
 </div>
 ```
 
-````
+
 
 - **Usage** : Utilisé pour structurer le contenu, mais ne possède pas de signification sémantique.
 - **Attributs courants** : `class`, `id`, `style`, `data-*`.
@@ -204,4 +204,4 @@ Voici un exemple de structure de page complète utilisant différents types de c
 - Les conteneurs permettent une meilleure gestion du layout et du style de la page via CSS.
 
 ---
-````
+
