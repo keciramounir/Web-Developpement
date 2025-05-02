@@ -22,7 +22,7 @@ color: gold;
 background-color: midnightblue;
 ```
 
-````
+
 
 ✅ Simple et lisible
 ❌ Choix limité
@@ -260,4 +260,4 @@ button {
 ---
 
 👨‍💻 \_Créé avec ❤️ par Mounir Kecira
-````
+
