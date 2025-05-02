@@ -1,0 +1,60 @@
+:root {
+    --text-color: hsl(220, 15%, 20%);
+    --bg-color: #fff;
+    --primary: tomato;
+    --primary-transparent: rgba(255, 99, 71, 0.6);
+}
+
+.dark-mode {
+    --text-color: hsl(0, 0%, 90%);
+    --bg-color: #111;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 2rem;
+    line-height: 1.6;
+    transition: 0.4s ease;
+}
+
+h2 {
+    color: darkslateblue;
+    margin-top: 3rem;
+}
+
+.demo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.color-box {
+    width: 100px;
+    height: 50px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+code {
+    background: #eee;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+}
+
+.var-btn {
+    background-color: var(--primary);
+    color: white;
+    padding: 0.4rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.var-btn:hover {
+    background-color: var(--primary-transparent);
+    transition: 0.3s ease;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎨 Démo des couleurs CSS – Mounir Kecira</title>
+    <link rel="stylesheet" href="colors.css">
+    
+</head>
+
+<body>
+
+    <h1>🎨 Démo interactive : Couleurs CSS</h1>
+    <p>Par <strong>Mounir Kecira</strong> – Lilix Consulting</p>
+
+    <h2>1. Couleurs nommées</h2>
+    <div class="demo">
+        <div class="color-box" style="background-color: gold;"></div>
+        <code>background-color: gold;</code>
+    </div>
+
+    <h2>2. Couleurs HEX (6 et 8 caractères)</h2>
+    <div class="demo">
+        <div class="color-box" style="background-color: #ff5733;"></div>
+        <code>#ff5733 (6 caractères)</code>
+    </div>
+    <div class="demo">
+        <div class="color-box" style="background-color: #00000080;"></div>
+        <code>#00000080 (8 caractères = alpha 50%)</code>
+    </div>
+
+    <h2>3. RGB et RGBA</h2>
+    <div class="demo">
+        <div class="color-box" style="background-color: rgb(0, 128, 255);"></div>
+        <code>rgb(0, 128, 255)</code>
+    </div>
+    <div class="demo">
+        <div class="color-box" style="background-color: rgba(0, 128, 255, 0.5);"></div>
+        <code>rgba(0, 128, 255, 0.5)</code>
+    </div>
+
+    <h2>4. HSL et HSLA</h2>
+    <div class="demo">
+        <div class="color-box" style="background-color: hsl(200, 80%, 50%);"></div>
+        <code>hsl(200, 80%, 50%)</code>
+    </div>
+    <div class="demo">
+        <div class="color-box" style="background-color: hsla(340, 70%, 60%, 0.4);"></div>
+        <code>hsla(340, 70%, 60%, 0.4)</code>
+    </div>
+
+    <h2>5. HEX court (3 caractères)</h2>
+    <div class="demo">
+        <div class="color-box" style="background-color: #0f0;"></div>
+        <code>#0f0 (équivaut à #00ff00)</code>
+    </div>
+
+    <h2>6. CMYK (non supporté)</h2>
+    <p>❌ CSS ne supporte pas <code>cmyk()</code> directement. Utilisez un convertisseur CMYK ➜ RGB :</p>
+    <a href="https://www.rapidtables.com/convert/color/cmyk-to-rgb.html" target="_blank">Convertisseur en ligne</a>
+
+    <h2>7. Autres systèmes CSS niveau 4</h2>
+    <div class="demo">
+        <div class="color-box" style="color: #000; background-color: hwb(90 20% 20%);"></div>
+        <code>hwb(90 20% 20%)</code>
+    </div>
+    <div class="demo">
+        <div class="color-box" style="background-color: lab(60% 40 20);"></div>
+        <code>lab(60% 40 20)</code>
+    </div>
+    <div class="demo">
+        <div class="color-box" style="background-color: lch(65% 70 320);"></div>
+        <code>lch(65% 70 320)</code>
+    </div>
+    <div class="demo">
+        <div class="color-box" style="background-color: color(display-p3 1 0.5 0);"></div>
+        <code>color(display-p3 1 0.5 0)</code>
+    </div>
+
+    <h2>🎯 Exemple complet : Thème sombre / clair</h2>
+    <p>Essayez de changer <code>body.classList.toggle('dark-mode')</code> via la console !</p>
+
+    <h2>🧠 Bonus : Variables CSS</h2>
+    <div class="demo">
+        <button class="var-btn">Bouton coloré</button>
+        <code>--primary: tomato;</code>
+    </div>
+
+    <hr />
+    <footer>
+        <p>👨‍💻 Créé avec ❤️ par <strong>Mounir Kecira</strong> – Lilix Consulting</p>
+        <p>📍 Alger, Mohammadia Mall – Local 1144</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>// Pour tester dans la console ou ajouter un toggle automatique :
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+</script>
+</body>
+
+</html>

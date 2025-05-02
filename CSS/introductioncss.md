@@ -151,6 +151,40 @@ Certains styles sont hérités automatiquement, d'autres non.
 
 ---
 
+### 9. 📝 Les commentaires CSS et leur utilité
+
+Les commentaires en CSS permettent d’ajouter des notes ou des explications dans le code sans qu’elles soient interprétées par le navigateur.
+
+#### Syntaxe des commentaires CSS :
+
+```css
+/* Ceci est un commentaire */
+```
+
+#### Utilité des commentaires pour les développeurs :
+
+- 📖 **Documentation** : Expliquer le rôle d’un bloc de styles ou d’une règle spécifique.
+- 🛠️ **Débogage** : Désactiver temporairement une partie du code sans la supprimer.
+- 🤝 **Collaboration** : Faciliter la compréhension du code pour les autres développeurs.
+
+#### Exemple :
+
+```css
+/* Styles pour le header */
+header {
+  background-color: #333;
+  color: white;
+}
+
+/* Boutons principaux */
+.button-primary {
+  background-color: #007bff;
+  color: white;
+}
+```
+
+➡️ Les commentaires rendent le code plus lisible et maintenable, surtout dans les projets complexes.
+
 ## 📘 À retenir avant de commencer
 
 ✅ CSS = Habillage visuel du HTML

@@ -1,0 +1,141 @@
+
+
+/* 🎨 1. Sélecteurs de base */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: blue;
+}
+
+.important {
+    font-weight: bold;
+    color: red;
+}
+
+#accueil {
+    background-color: lightgreen;
+}
+
+p.note {
+    color: orange;
+}
+
+/* 🔗 2. Sélecteurs combinés */
+article p {
+    color: darkgray;
+}
+
+ul>li {
+    list-style-type: square;
+}
+
+h2+p {
+    color: green;
+}
+
+h2~p {
+    font-style: italic;
+}
+
+/* 🔐 3. Sélecteurs d’attributs */
+input[type="text"] {
+    border: 1px solid black;
+}
+
+a[href^="https"] {
+    color: green;
+}
+
+img[src$=".jpg"] {
+    border: 2px solid red;
+}
+
+div[class*="box"] {
+    background: #eee;
+}
+
+/* 🧠 4. Pseudo-classes */
+button:hover {
+    background-color: yellow;
+}
+
+ul li:first-child {
+    color: red;
+}
+
+ul li:nth-child(2) {
+    font-weight: bold;
+}
+
+p:not(.info) {
+    color: gray;
+}
+
+/* 🎭 5. Pseudo-éléments */
+p::before {
+    content: "\2794 ";
+    color: blue;
+}
+
+p::after {
+    content: " \2714";
+    color: green;
+}
+
+p::first-line {
+    text-transform: uppercase;
+}
+
+p::first-letter {
+    font-size: 200%;
+    color: red;
+}
+
+/* 🧾 6. Groupe */
+h1,
+h2,
+p {
+    margin-bottom: 20px;
+}
+
+/* 🧩 Sélecteurs avancés */
+li:nth-of-type(2) {
+    color: red;
+}
+
+p:only-child {
+    background: lightblue;
+}
+
+div:empty {
+    display: none;
+}
+
+input:checked {
+    border: 2px solid green;
+}
+
+input:invalid {
+    border-color: red;
+}
+
+:is(h1, h2, h3) {
+    color: purple;
+}
+
+:where(header, footer, main) {
+    margin: 0;
+}
+
+::selection {
+    background: yellow;
+    color: black;
+}
+
+article:has(img) {
+    border: 2px solid green;
+}
+
