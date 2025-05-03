@@ -25,7 +25,7 @@ Le code HTML est divisé en trois sections principales : l'en-tête (header), le
 </header>
 ```
 
-````
+
 
 #### Explication :
 
@@ -65,7 +65,7 @@ Pourquoi avons-nous utilisé cette structure ?
     <a href="#" class="language-link">Español (Latinoamérica)</a>
   </div>
 </main>
-```
+
 
 #### Explication :
 
@@ -197,4 +197,4 @@ body {
 ## Conclusion 🎉
 
 Ce projet est une simple réplique de la page d'accueil de Google, utilisant HTML et CSS pour la structure et la mise en page. L'utilisation de Flexbox garantit que la mise en page est responsive et s'adapte bien aux différentes tailles d'écran. Le style simple et épuré rend l'interface conviviale et moderne.
-````
+
