@@ -38,7 +38,7 @@ navigator.geolocation.getCurrentPosition(function (position) {
 });
 ```
 
-````
+
 
 ### ⚠️ À savoir :
 
